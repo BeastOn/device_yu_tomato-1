@@ -89,6 +89,16 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-filter=interpret-only \
+    dalvik.vm.image-dex2oat-filter=speed
+
+PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := \
+    --compiler-filter=interpret-only
+
+$(call add-product-dex-preopt-module-config,services,--compiler-filter=speed)
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     yl_btmac
@@ -268,11 +278,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
-
-ifeq ($(TARGET_BUILD_VARIANT),user)
-WITH_DEXPREOPT_BOOT_IMG_ONLY := true
-WITH_DEXPREOPT := true
-endif
 
 # WiFi Display
 ifneq ($(QCPATH),)

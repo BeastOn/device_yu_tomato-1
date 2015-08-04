@@ -107,6 +107,9 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
+# Dexpreopt
+WITH_DEXPREOPT := true
+
 # Factory
 TARGET_PROP_PATH_FACTORY := "/persist/factory.prop"
 
