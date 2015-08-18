@@ -74,7 +74,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 13576175616 # 13576192000 - 16384
 
 # Quickboot
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/QuickBoot.apk:system/priv-app/QuickBoot/QuickBoot.apk
+    $(DEVICE_PATH)/prebuilt/QuickBoot.apk:system/priv-app/QuickBoot/QuickBoot.apk
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
