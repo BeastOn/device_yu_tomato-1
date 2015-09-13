@@ -1,4 +1,4 @@
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2015 Euphoria-OS Legacy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,12 +14,15 @@
 
 $(call inherit-product, device/yu/tomato/full_tomato.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common EOS stuff.
+$(call inherit-product, vendor/eos/config/common_full_phone.mk)
 
-PRODUCT_NAME := cm_tomato
+PRODUCT_NAME := eos_tomato
 BOARD_VENDOR := yu
 PRODUCT_DEVICE := tomato
+
+PRODUCT_COPY_FILES += \
+    vendor/eos/prebuilt/common/bootanimations/BOOTANIMATION-1280x768.zip:system/media/bootanimation.zip
 
 PRODUCT_GMS_CLIENTID_BASE := android-micromax
 

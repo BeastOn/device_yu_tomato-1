@@ -1,0 +1,57 @@
+[
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_kernel_cyanogen_msm8916",
+    "target_path": "kernel/cyanogen/msm8916",
+    "revision":    "stable/cm-12.1-amss-1.0.2-YOG4P"
+  },
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_device_cyanogen_msm8939-common",
+    "target_path": "device/cyanogen/msm8939-common",
+    "revision":    "stable/cm-12.1-YOG4P"
+  },
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_external_mm-dash",
+    "target_path": "external/mm-dash",
+    "revision":    "cm-12.1"
+  },
+  {
+    "remote":      "github",
+    "repository":  "TheMuppets/proprietary_vendor_yu",
+    "target_path": "vendor/yu",
+    "revision":    "stable/cm-12.1-YOG4P"
+  },
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_hardware_qcom_audio",
+    "target_path": "hardware/qcom/audio-caf/msm8916",
+    "revision":    "cm-12.1-caf-8916"
+  },
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_hardware_qcom_media",
+    "target_path": "hardware/qcom/media-caf/msm8916",
+    "revision":    "cm-12.1-caf-8916"
+  },
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_hardware_qcom_display",
+    "target_path": "hardware/qcom/display-caf/msm8916",
+    "revision":    "cm-12.1-caf-8916"
+  },
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_device_qcom_common",
+    "target_path": "device/qcom/common",
+    "revision":    "cm-12.1"
+  },
+  {
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_hardware_qcom_fm",
+    "target_path": "hardware/qcom/fm",
+    "revision":    "cm-12.1"
+  }
+]
+
