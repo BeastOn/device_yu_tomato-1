@@ -28,14 +28,11 @@
  */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
 #include "log.h"
 #include "util.h"
-
-#include "init_msm.h"
 
 static int display_density = 320;
 
@@ -53,23 +50,12 @@ static void import_cmdline(char *name, int for_emulator)
     }
 }
 
-void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type)
+void vendor_load_properties()
 {
-    char device[PROP_VALUE_MAX];
-    int rc;
-
-    UNUSED(msm_id);
-    UNUSED(msm_ver);
-    UNUSED(board_type);
-
-    rc = property_get("ro.cm.device", device);
-    if (!rc || !ISMATCH(device, "tomato"))
-        return;
-
     char density[5];
     import_kernel_cmdline(0, import_cmdline);
-    snprintf(density, sizeof(density), "%d", display_density);
-    property_set(PROP_LCDDENSITY, density);
+    sprintf(density,"%d",display_density);
+    property_set("ro.sf.lcd_density", density);
     if (display_density == 480) {
         property_set("ro.product.model", "YU5510");
     } else {
