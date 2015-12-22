@@ -1,0 +1,54 @@
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MSM8994
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := msm8994
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno430
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_SMP := true
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+
+# Kernel
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --dt device/yu/sambar/dt.img
+
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 26419412992
+BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+
+# Recovery
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_RECOVERY_SWIPE := true
+TARGET_PREBUILT_KERNEL := device/yu/sambar/kernel
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+
+# TWRP Build Flags
+TARGET_RECOVERY_FSTAB := device/yu/sambar/recovery/etc/twrp.fstab
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_CRYPTO := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+
+# Vendor Init
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
