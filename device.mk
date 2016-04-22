@@ -111,7 +111,8 @@ endif
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.target.rc
+    init.target.rc \
+    init.yl_btmac.sh
 
 # Recovery
 PRODUCT_EXTRA_RECOVERY_KEYS += \

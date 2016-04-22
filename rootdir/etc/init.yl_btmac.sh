@@ -1,4 +1,5 @@
-# Copyright (c) 2009-2012, 2014, The Linux Foundation. All rights reserved.
+#!/system/bin/sh
+# Copyright (c) 2009-2013, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -25,29 +26,13 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-on boot
-    # change file owner for factory test
-    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/firmware_version
-    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/firmware_update
-    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/calibrate
-
-    # Notification LED
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/green/blink
-    chown system system /sys/class/leds/blue/blink
-    chown system system /sys/class/leds/red/led_time
-    chown system system /sys/class/leds/green/led_time
-    chown system system /sys/class/leds/blue/led_time
-
-    # Touchscreen
-    chown root system /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl
-    chmod 0660 /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl
-
-    chown root system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/keypad_enable
-    chmod 0660 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/keypad_enable
-
-service config_bt_addr /system/bin/sh /system/etc/init.yl_btmac.sh "onboot"
-    class core
-    user bluetooth
-    group bluetooth radio
-    oneshot
+  if [ -f /system/bin/yl_btmac ]; then
+    BTMAC=`/system/bin/yl_btmac`
+    if [ -n "$BTMAC" ] && [ "$BTMAC" != "00:00:00:00:00:00" ]; then
+      /system/bin/btnvtool -b $BTMAC
+    else
+      /system/bin/btnvtool -O
+    fi
+  else
+    /system/bin/btnvtool -O
+  fi
